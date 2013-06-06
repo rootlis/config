@@ -1,4 +1,4 @@
-source ~/bashmarks.sh
+source ~/.bashmarks.sh
 
 #make it pretty
 autoload -U colors && colors
