@@ -1,28 +1,77 @@
+" Load plugins placed in ~/.vim/autoload
 call pathogen#infect()
+
+
+
+"INDENTATION SETTINGS
+" Normal tab represented as 4 columns
 set tabstop=4
+" Expanded tab inserts 4 columns
+set softtabstop=4
+" Reindent (>>, <<, and =) => 4 columns
+set shiftwidth=4
+" Tab => spaces
+set expandtab
+" Auto-indentation
 set smartindent
 
-set tabstop=4
-set shiftwidth=4
-set expandtab
 
-syntax on
+
+"FILETYPE SETTINGS
+" Enable filetype detection
 filetype on
+" Enable filetype-specific plugins
 filetype plugin on
-syntax enable
 
+
+
+"SEARCH SETTINGS
+" Searching ignores case
 set ignorecase
+" Searching ignores case unless the search string has a capital letter
 set smartcase
+" Highlight matches
 set hlsearch
+" Move cursor to first match before hitting enter
 set incsearch
 
+
+
+"APPEARANCE SETTINGS
+" Keep at least three rows between the cursor and the edge of the screen
 set scrolloff=3
-
+" Display line numbers on the left
+set number
+" Highlight the current line
+set cursorline
+" Always show the cursor's column and row numbers
 set ruler
+" Enable syntax highlighting
+syntax enable
+" Enable default syntax highlighting settings
+syntax on
 
+
+
+"MISC SETTINGS
+" Let us backspace over indents, newlines, and past the start of the insert buffer
 set backspace=indent,eol,start
 
+
+
+"SOLARIZED SETTINGS
+" Use a dark theme
 set background=dark
+" Don't set the background color
 let g:solarized_termtrans=1
-let g:solarized_termcolors=256
+" Use 256 color-mode
+"let g:solarized_termcolors=256
 colorscheme solarized
+
+
+
+"SYNTASTIC SETTINGS
+"Do syntax checks when the buffer is first loaded
+let g:syntastic_check_on_open=1
+" Use syntax highlighting to mark errors
+let g:syntastic_enable_highlighting=1
