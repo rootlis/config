@@ -2,7 +2,6 @@
 call pathogen#infect()
 
 
-
 "INDENTATION SETTINGS
 " Normal tab represented as 4 columns
 set tabstop=4
@@ -16,13 +15,11 @@ set expandtab
 set smartindent
 
 
-
 "FILETYPE SETTINGS
 " Enable filetype detection
 filetype on
 " Enable filetype-specific plugins
 filetype plugin on
-
 
 
 "SEARCH SETTINGS
@@ -36,7 +33,6 @@ set hlsearch
 set incsearch
 
 
-
 "APPEARANCE SETTINGS
 " Keep at least three rows between the cursor and the edge of the screen
 set scrolloff=3
@@ -48,9 +44,8 @@ set cursorline
 set ruler
 " Enable syntax highlighting
 syntax enable
-" Enable default syntax highlighting settings
+" Use default syntax highlighting settings
 syntax on
-
 
 
 "MISC SETTINGS
@@ -58,16 +53,15 @@ syntax on
 set backspace=indent,eol,start
 
 
-
 "SOLARIZED SETTINGS
 " Use a dark theme
 set background=dark
 " Don't set the background color
 let g:solarized_termtrans=1
-" Use 256 color-mode
+" Use 256 color-mode (necessary only for Terminal.app)
 "let g:solarized_termcolors=256
+" Start Solarized
 colorscheme solarized
-
 
 
 "SYNTASTIC SETTINGS
