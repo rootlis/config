@@ -10,7 +10,19 @@ export RPROMPT="%{$fg[blue]%}[%T]%{$reset_color%}"
 
 
 ## PATH environment variable ##
-export PATH=/usr/local/share/python3:/usr/local/sbin:$HOME/local/node/bin:/opt/local/bin:/opt/local/sbin:$PATH
+# Remember the original path so we don't repeat the whole path every source
+[ $ORIG_PATH ] || ORIG_PATH=$PATH
+export ORIG_PATH
+if [[ 'geoff-peterson.local' == `hostname` ]]; then
+    # MacPorts
+    PYTHON_BIN=/opt/local/Library/Frameworks/Python.framework/Versions/Current/bin
+    PORT_BIN=/opt/local/bin:/opt/local/sbin
+else
+    # Homebrew
+    PYTHON_BIN=/usr/local/share/python3
+    PORT_BIN=/usr/local/sbin
+fi
+export PATH=$PYTHON_BIN:$PORT_BIN:$ORIG_PATH
 
 
 ## Misc Options ##
