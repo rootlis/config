@@ -6,7 +6,7 @@ PROMPT="[ %{$fg[blue]%}%n%{$reset_color%} %{$fg[red]%}%~%{$reset_color%} ]# "
 RPROMPT="%{$fg[blue]%}[%T]%{$reset_color%}"
 
 #environment variables
-export PATH=/usr/local/sbin:$HOME/local/node/bin:/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=/usr/local/share/python3:/usr/local/sbin:$HOME/local/node/bin:/opt/local/bin:/opt/local/sbin:$PATH
 
 #Set autocompletion on
 autoload -U compinit
@@ -32,4 +32,3 @@ alias -g ews-nox='ssh vanek1@linux64.ews.illinois.edu'
 alias -g luthien='ssh matt@2cats2curio.us'
 alias ls='ls -G -l'
 alias -g valgrind='valgrind --dsymutil=yes'
-
