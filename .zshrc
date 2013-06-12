@@ -13,17 +13,18 @@ export RPROMPT="%{$fg[blue]%}[%T]%{$reset_color%}"
 # Remember the original path so we don't repeat the whole path every source
 [ $ORIG_PATH ] || ORIG_PATH=$PATH
 export ORIG_PATH
-if [[ `hostname` == 'geoff-peterson.local' ]]; then
+HOSTNAME=`hostname -s`
+if [[ $HOSTNAME == 'geoff-peterson' ]]; then
     # MacPorts
     PYTHON_BIN=/opt/local/Library/Frameworks/Python.framework/Versions/Current/bin
     PORT_BIN=/opt/local/bin:/opt/local/sbin
     export PATH=$PYTHON_BIN:$PORT_BIN:$ORIG_PATH
-elif [[ `hostname` == 'Martin-Vaneks-iMac.local' ]]; then
+elif [[ $HOSTNAME == 'Martin-Vaneks-iMac' ]]; then
     # Homebrew
     PYTHON_BIN=/usr/local/share/python3
     BREW_BIN=/usr/local/sbin
     export PATH=$PYTHON_BIN:$BREW_BIN:$ORIG_PATH
-elif [[ `hostname` == 'white-devil' ]]; then
+elif [[ $HOSTNAME == 'white-devil' ]]; then
     RUBY_BIN=/home/matt/.gem/ruby/1.9.1/bin
     OTHER_BIN=/usr/local/sbin
     export PATH=$RUBY_BIN:$OTHER_BIN:$ORIG_PATH
