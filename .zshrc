@@ -1,3 +1,7 @@
+## Variables for setting assorted cases ##
+OS=`uname`
+HOSTNAME=`hostname -s`
+
 ## Enable Bashmarks ##
 source ~/.bashmarks.sh
 
@@ -5,15 +9,18 @@ source ~/.bashmarks.sh
 ##  Prompt Appearance ##
 # This gives us some helpful variables for setting colors
 autoload -U colors && colors
-export PROMPT="[ %{$fg[blue]%}%n%{$reset_color%} %{$fg[red]%}%~%{$reset_color%} ]# "
-export RPROMPT="%{$fg[blue]%}[%T]%{$reset_color%}"
+export PROMPT="[ %{$fg[blue]%}%n%{$reset_color%} %{$fg[red]%}%3d%{$reset_color%} ]# "
+if [[ -a /sys/class/power_supply/BAT0 ]]; then
+    export RPROMPT="%{[%} %{$fg[red]%}$[100*$(</sys/class/power_supply/BAT0/energy_now)/$(</sys/class/power_supply/BAT0/energy_full)]%%%{$reset_color%} %{$fg[blue]%}%T%{$reset_color%} ]"
+else
+    export RPROMPT="%{$fg[blue]%}[%T]%{$reset_color%}"
+fi
 
 
 ## PATH environment variable ##
 # Remember the original path so we don't repeat the whole path every source
 [ $ORIG_PATH ] || ORIG_PATH=$PATH
 export ORIG_PATH
-HOSTNAME=`hostname -s`
 if [[ $HOSTNAME == 'geoff-peterson' ]]; then
     # MacPorts
     PYTHON_BIN=/opt/local/Library/Frameworks/Python.framework/Versions/Current/bin
@@ -56,9 +63,23 @@ zstyle ':completion:*:warnings' format '%Bsorry, no matches for: %d%b'
 
 ## Shortcuts ##
 # ls => long form, human readable sizes, color
-OS=`uname`
 if [[ $OS == 'Darwin' ]]; then
     alias ls='ls -lhG'
 elif [[ $OS == 'Linux' ]]; then
     alias ls='ls -lh --color'
 fi
+
+
+## Bind escape sequences ##
+# Ins
+bindkey "[2~" quoted-insert
+# Del
+bindkey "[3~" delete-char
+# Home
+bindkey "[1~" beginning-of-line
+# End
+bindkey "[4~" end-of-line
+# Page Up
+bindkey "[5~" beginning-of-history
+# Page Down
+bindkey "[6~" end-of-history
