@@ -55,4 +55,10 @@ zstyle ':completion:*:warnings' format '%Bsorry, no matches for: %d%b'
 
 
 ## Shortcuts ##
-alias ls='ls -G -l'
+# ls => long form, human readable sizes, color
+OS=`uname`
+if [[ $OS == 'Darwin' ]]; then
+    alias ls='ls -lhG'
+elif [[ $OS == 'Linux' ]]; then
+    alias ls='ls -lh --color'
+fi
