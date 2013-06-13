@@ -39,7 +39,7 @@ case $HOSTNAME in
         BREW_BIN=/usr/local/sbin
         export PATH=$PYTHON_BIN:$BREW_BIN:$ORIG_PATH
     ;;
-    *)
+    white-devil)
         RUBY_BIN=/home/matt/.gem/ruby/1.9.1/bin
         OTHER_BIN=/usr/local/sbin
         export PATH=$RUBY_BIN:$OTHER_BIN:$ORIG_PATH
