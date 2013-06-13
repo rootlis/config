@@ -49,7 +49,6 @@ esac
 
 ## Misc Options ##
 bindkey -v              # Vi line editing mode
-setopt correctall       # Auto-correct typos
 setopt autocd           # "$ cd <dir>" == "$ <dir>"
 setopt auto_resume      # Resume suspended job by typing the program name
 setopt extendedglob     # Use '#', '~', and '^' as patterns
