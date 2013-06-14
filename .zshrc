@@ -2,6 +2,13 @@
 OS=`uname`
 HOSTNAME=`hostname -s`
 
+
+## Misc Options ##
+bindkey -v              # Vi line editing mode
+setopt autocd           # "$ cd <dir>" == "$ <dir>"
+setopt auto_resume      # Resume suspended job by typing the program name
+
+
 ## Enable Bashmarks ##
 source ~/.bashmarks.sh
 
@@ -18,7 +25,9 @@ if [[ -a /sys/class/power_supply/BAT0 ]]; then
     BAT_NOW='$(</sys/class/power_supply/BAT0/energy_now)'
     BAT_FUL='$(</sys/class/power_supply/BAT0/energy_full)'
     BAT_PER='$[100*'$BAT_NOW'/'$BAT_FUL']%%'
-    export RPROMPT='%{[%} %{$fg[red]%}'$BAT_PER'%{$reset_color%} %{$fg[blue]%}%T%{$reset_color%} ]'
+    BAT_STA='$(</sys/class/power_supply/BAT0/status)'
+    BAT_COL='${${${${'$BAT_STA'/Full/'$fg[green]'}/Unknown/'$fg[yellow]'}/Charging/'$fg[yellow]'}/Discharging/'$fg[red]'}'
+    export RPROMPT='%{[%} %{'$BAT_COL'%}'$BAT_PER'%{$reset_color%} %{$fg[blue]%}%T%{$reset_color%} ]'
 else
     export RPROMPT='%{$fg[blue]%}[%T]%{$reset_color%}'
 fi
@@ -47,13 +56,6 @@ case $HOSTNAME in
 esac
 
 
-## Misc Options ##
-bindkey -v              # Vi line editing mode
-setopt autocd           # "$ cd <dir>" == "$ <dir>"
-setopt auto_resume      # Resume suspended job by typing the program name
-setopt extendedglob     # Use '#', '~', and '^' as patterns
-
-
 ## History ##
 export HISTFILE=~/.zsh-histfile
 export HISTSIZE=1000
@@ -69,8 +71,8 @@ zstyle ':completion:*:warnings' format '%Bsorry, no matches for: %d%b'
 ## Shortcuts ##
 # ls => long form, human readable sizes, color
 case $OS in
-    Darwin) alias ls='ls -lhG';;
-    Linux)  alias ls='ls -lh --color';;
+    Darwin) alias ls='ls -hG';;
+    Linux)  alias ls='ls -h --color';;
 esac
 
 
