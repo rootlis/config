@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/matt/.dropbox/l'
+let g:netrw_dirhist_2='/Users/matt/.vim'
+let g:netrw_dirhist_3='/Library/LaunchDaemons'
+let g:netrw_dirhist_4='/Users/matt/progs/note-bk/static'
+let g:netrw_dirhist_5='/home/matt/programs/autodownload'
+let g:netrw_dirhist_6='/mnt/zpool/Downloads'
