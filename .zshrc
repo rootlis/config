@@ -14,13 +14,9 @@ source ~/.bashmarks.sh
 
 
 ##  Prompt Appearance ##
-# Set helpful color variables
 autoload -U colors && colors
-# Perform command substitutions in-prompt
 setopt PROMPT_SUBST
-# Left side prompt value
 export PROMPT="[ %{$fg[blue]%}%n%{$reset_color%} %{$fg[red]%}%3d%{$reset_color%} ]# "
-# Right side prompt value conditional on available battery info
 if [[ -a /sys/class/power_supply/BAT0 ]]; then
     BAT_NOW='$(</sys/class/power_supply/BAT0/energy_now)'
     BAT_FUL='$(</sys/class/power_supply/BAT0/energy_full)'
@@ -34,26 +30,28 @@ fi
 
 
 ## PATH environment variable ##
-# Remember the original path so we don't repeat the whole path every source
 [ $ORIG_PATH ] || ORIG_PATH=$PATH
 export ORIG_PATH
 case $HOSTNAME in
     geoff-peterson)     # Macports
         PYTHON_BIN=/opt/local/Library/Frameworks/Python.framework/Versions/Current/bin
         PORT_BIN=/opt/local/bin:/opt/local/sbin
-        export PATH=$PYTHON_BIN:$PORT_BIN:$ORIG_PATH
-    ;;
+        export PATH=$PYTHON_BIN:$PORT_BIN:$ORIG_PATH ;;
     Martin-Vaneks-iMac) # Homebrew
         PYTHON_BIN=/usr/local/share/python3
         BREW_BIN=/usr/local/sbin
-        export PATH=$PYTHON_BIN:$BREW_BIN:$ORIG_PATH
-    ;;
+        export PATH=$PYTHON_BIN:$BREW_BIN:$ORIG_PATH ;;
     white-devil)
         RUBY_BIN=/home/matt/.gem/ruby/1.9.1/bin
         OTHER_BIN=/usr/local/sbin
-        export PATH=$RUBY_BIN:$OTHER_BIN:$ORIG_PATH
-    ;;
+        export PATH=$RUBY_BIN:$OTHER_BIN:$ORIG_PATH ;;
 esac
+
+
+## SYSTEMD environment variables ##
+if [ $OS = 'Linux' ]; then
+    export SYSTEMD_PAGER=`which cat`
+fi
 
 
 ## History ##
