@@ -16,7 +16,7 @@ source ~/.bashmarks.sh
 ##  Prompt Appearance ##
 autoload -U colors && colors
 setopt PROMPT_SUBST
-export PROMPT="[ %{$fg[blue]%}%n%{$reset_color%} %{$fg[red]%}%3d%{$reset_color%} ]# "
+export PROMPT="[ %{$fg[blue]%}%n%{$reset_color%} %{$fg[red]%}%~%{$reset_color%} ]%# "
 if [[ -a /sys/class/power_supply/BAT0 ]]; then
     BAT_NOW='$(</sys/class/power_supply/BAT0/energy_now)'
     BAT_FUL='$(</sys/class/power_supply/BAT0/energy_full)'
@@ -33,11 +33,11 @@ fi
 [ $ORIG_PATH ] || ORIG_PATH=$PATH
 export ORIG_PATH
 case $HOSTNAME in
-    geoff-peterson)     # Macports
+    secretariat | geoff-peterson)
         PYTHON_BIN=/opt/local/Library/Frameworks/Python.framework/Versions/Current/bin
         PORT_BIN=/opt/local/bin:/opt/local/sbin
         export PATH=$PYTHON_BIN:$PORT_BIN:$ORIG_PATH ;;
-    Martin-Vaneks-iMac) # Homebrew
+    Martin-Vaneks-iMac)
         PYTHON_BIN=/usr/local/share/python3
         BREW_BIN=/usr/local/sbin
         export PATH=$PYTHON_BIN:$BREW_BIN:$ORIG_PATH ;;
