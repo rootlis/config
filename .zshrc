@@ -16,7 +16,7 @@ source ~/.bashmarks.sh
 ##  Prompt Appearance ##
 autoload -U colors && colors
 setopt PROMPT_SUBST
-export PROMPT="[ %{$fg[blue]%}%n%{$reset_color%} %{$fg[red]%}%~%{$reset_color%} ]%# "
+export PROMPT="[ %{$fg[blue]%}%m%{$reset_color%} %{$fg[red]%}%~%{$reset_color%} ]%# "
 if [[ -a /sys/class/power_supply/BAT0 ]]; then
     BAT_NOW='$(</sys/class/power_supply/BAT0/energy_now)'
     BAT_FUL='$(</sys/class/power_supply/BAT0/energy_full)'
