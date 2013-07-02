@@ -54,8 +54,8 @@ set backspace=indent,eol,start
 
 
 "SOLARIZED SETTINGS
-" Use a dark theme
-set background=dark
+" Use a light theme
+set background=light
 " Don't set the background color
 let g:solarized_termtrans=1
 " Use 256 color-mode (necessary only for Terminal.app)
