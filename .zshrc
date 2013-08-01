@@ -36,16 +36,19 @@ case $HOSTNAME in
     secretariat | geoff-peterson)
         PYTHON_BIN=/opt/local/Library/Frameworks/Python.framework/Versions/Current/bin
         PORT_BIN=/opt/local/bin:/opt/local/sbin
-        export PATH=$PYTHON_BIN:$PORT_BIN:$ORIG_PATH ;;
+        PATH=$PYTHON_BIN:$PORT_BIN:$ORIG_PATH ;&
+    secretariat)
+        PATH=/usr/local/bin:$PATH ;;
     Martin-Vaneks-iMac)
         PYTHON_BIN=/usr/local/share/python3
         BREW_BIN=/usr/local/sbin
-        export PATH=$PYTHON_BIN:$BREW_BIN:$ORIG_PATH ;;
+        PATH=$PYTHON_BIN:$BREW_BIN:$ORIG_PATH ;;
     white-devil)
         RUBY_BIN=/home/matt/.gem/ruby/1.9.1/bin
         OTHER_BIN=/usr/local/sbin
-        export PATH=$RUBY_BIN:$OTHER_BIN:$ORIG_PATH ;;
+        PATH=$RUBY_BIN:$OTHER_BIN:$ORIG_PATH ;;
 esac
+export PATH
 
 
 ## SYSTEMD environment variables ##

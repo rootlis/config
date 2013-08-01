@@ -20,6 +20,7 @@ set smartindent
 filetype on
 " Enable filetype-specific plugins
 filetype plugin on
+filetype indent on
 
 
 "SEARCH SETTINGS
@@ -34,10 +35,14 @@ set incsearch
 
 
 "APPEARANCE SETTINGS
+" Don't wrap lines
+set nowrap
 " Keep at least three rows between the cursor and the edge of the screen
 set scrolloff=3
 " Display line numbers on the left
+"set laststatus=2
 set number
+set statusline+=%F
 " Highlight the current line
 set cursorline
 " Always show the cursor's column and row numbers
@@ -69,3 +74,5 @@ colorscheme solarized
 let g:syntastic_check_on_open=1
 " Use syntax highlighting to mark errors
 let g:syntastic_enable_highlighting=1
+" Enable Closure Compiler checker
+let g:syntastic_javascript_closure_compiler_path = '/usr/local/bin/closure-compiler.jar'
