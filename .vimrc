@@ -37,11 +37,12 @@ syntax on           " Use default syntax highlighting settings
 set backspace=indent,eol,start  " Backspace deletes indents, newlines, and past insert buffer
 
 
-"SOLARIZED SETTINGS
-set background=dark             " Use a light theme
+"COLOR SETTINGS
+"set background=dark            " Use a light theme
 "let g:solarized_termtrans=1    " Don't set the background color
 "let g:solarized_termcolors=256 " Use 256 color-mode (necessary only for Terminal.app)
 "colorscheme solarized          " Start Solarized
+colorscheme distinguished
 
 
 "SYNTASTIC SETTINGS

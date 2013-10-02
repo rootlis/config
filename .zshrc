@@ -84,3 +84,4 @@ bindkey "[1~" beginning-of-line       # Home
 bindkey "[4~" end-of-line             # End
 bindkey "[5~" beginning-of-history    # Page Up
 bindkey "[6~" end-of-history          # Page Down
+export NODE_PATH="/opt/local/lib/node_modules"
