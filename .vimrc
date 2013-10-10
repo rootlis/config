@@ -38,11 +38,14 @@ set backspace=indent,eol,start  " Backspace deletes indents, newlines, and past 
 
 
 "COLOR SETTINGS
-"set background=dark            " Use a light theme
+set background=dark             " Use a dark theme
 "let g:solarized_termtrans=1    " Don't set the background color
 "let g:solarized_termcolors=256 " Use 256 color-mode (necessary only for Terminal.app)
-"colorscheme solarized          " Start Solarized
-colorscheme distinguished
+if has('gui_running')
+    colorscheme solarized       " Start Solarized
+else
+    colorscheme distinguished
+endif
 
 
 "SYNTASTIC SETTINGS
